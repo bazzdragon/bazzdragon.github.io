@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #000000;
+    color: #333;
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#back {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+}
