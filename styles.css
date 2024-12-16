@@ -1,0 +1,147 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* About Section */
+#about {
+    padding: 2rem 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Skills Section */
+#skills {
+    padding: 2rem 0;
+    background-color: #e9ecef;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#skills ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+#skills ul li {
+    margin: 0 20px;
+    font-size: 1.2rem;
+}
+
+/* Projects Section */
+#projects {
+    padding: 2rem 0;
+    background-color: #fff;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.project {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 30%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.project h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contact Section */
+#contact {
+    padding: 2rem 0;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#contact ul {
+    list-style: none;
+}
+
+#contact ul li {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+#contact a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
