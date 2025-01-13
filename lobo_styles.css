@@ -15,15 +15,15 @@ header {
     background-color: #000000;
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 2vh 0;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 50px;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 20px;
 }
 
 #lobo ul {
@@ -34,7 +34,7 @@ header p {
 
 #lobo ul li {
     margin: 0 1.2vw;
-    font-size: 1.5rem;
+    font-size: 20px;
 }
 
 .container {
@@ -45,7 +45,7 @@ header p {
 #back {
     text-align: center;
     color: white;
-    font-size: 2rem;
+    font-size: 20px;
 }
 
 
