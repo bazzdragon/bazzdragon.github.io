@@ -50,6 +50,7 @@ header p {
 
 
 a.button {
+    transition-duration: 0.4s;
     padding: 0.2vh 0.6vw;
     border: 1px outset buttonborder;
     border-radius: 20px;
