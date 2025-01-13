@@ -50,9 +50,9 @@ header p {
 
 
 a.button {
-    padding: 1px 6px;
-    border: 1px outset buttonborder;
-    border-radius: 3px;
+    padding: 0.1vh 0.6vw;
+    border: 0.1vw outset buttonborder;
+    border-radius: 20px;
     color: black;
     background-color: white;
     text-decoration: none;
