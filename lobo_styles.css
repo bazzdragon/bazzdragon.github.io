@@ -50,11 +50,22 @@ header p {
 
 
 a.button {
-    padding: 0.1vh 0.6vw;
-    border: 0.1vw outset buttonborder;
+    padding: 0.2vh 0.6vw;
+    border: 1px outset buttonborder;
     border-radius: 20px;
     color: black;
     background-color: white;
     text-decoration: none;
     text-align: center;
+}
+
+
+a.button:hover {
+    color: white;
+    background: rgb(71, 69, 69);
+}
+
+img {
+    width: 30vw;
+    height: auto;
 }
