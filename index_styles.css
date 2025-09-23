@@ -8,8 +8,8 @@
 body {
     font-family: Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #000000;
-    color: #333;
+    background: #000;
+    color: #fff; /* Make all text white */
 }
 
 /* Header */
@@ -30,8 +30,17 @@ header p {
 
 /* Container */
 .container {
-    width: 80vw;
+    width: 90%;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+/* Center all section content */
+section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 /* About Section */
@@ -47,28 +56,39 @@ header p {
     margin-bottom: 2vh;
 }
 
-/* Skills Section */
-#skills {
-    padding: 2vw 0;
-    background-color: #000000;
-    color: white;
+/* Style the skills/tools section */
+#skills .skills-list {
+    background: #181818;
+    border-radius: 12px;
+    padding: 24px 32px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
-#skills h2 {
-    font-size: 40px;
-    margin-bottom: 2vh;
-    text-align: center;
+#skills .skills-list ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 32px;
+    padding-left: 20px;
 }
 
+#skills .skills-list li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Skills/tools list: vertical, centered */
 #skills ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
+    display: block;
+    padding-left: 0;
+    list-style-position: inside;
 }
 
 #skills ul li {
-    margin: 0 1.2vw;
-    font-size: 25px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
 /* Projects Section */
@@ -87,31 +107,66 @@ header p {
 
 .project-list {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
     color: black;
 }
 
 .project {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 1vw;
-    width: 25vw;
-    box-shadow: 0 0.2vh 0.4vw rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5vw;
+    background: #222;           /* Lighter dark for better contrast */
+    border-radius: 12px;
+    padding: 24px 32px;
+    min-width: 220px;
+    max-width: 320px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
     text-align: center;
+    color: #fff;                /* Make text inside project white */
 }
 
 .project h3 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 1vh;
+    color: #fff;                /* Ensure heading is white */
+}
+
+.project p {
+    color: #ddd;                /* Slightly lighter for paragraph */
 }
 
 .project a {
     color: #1e44aa;
     text-decoration: none;
     font-weight: bold;
+}
+
+.project .button {
+    display: block;
+    margin: 16px auto 0 auto; /* Center horizontally */
+}
+
+/* Projects: horizontal, wrap on small screens */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    padding: 0;
+}
+
+.project {
+    background: #222;           /* Lighter dark for better contrast */
+    border-radius: 12px;
+    padding: 24px 32px;
+    min-width: 220px;
+    max-width: 320px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    text-align: center; /* Center all content in project card */
 }
 
 /* Contact Section */
@@ -128,12 +183,14 @@ header p {
 }
 
 #contact ul {
+    display: block;
+    padding-left: 20px;
     list-style: none;
     color: white;
 }
 
 #contact ul li {
-    margin: 0.5vh 0;
+    margin-bottom: 6px;
     font-size: 20px;
 }
 
@@ -187,4 +244,59 @@ a.button {
 a.button:hover {
     color: black;
     background: rgb(197, 197, 197);
+}
+
+/* Responsive container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive buttons */
+.button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 0.5em 1.2em;
+    font-size: 1em;
+    border-radius: 4px;
+    text-align: center;
+    background: none;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .container {
+        width: 98%;
+        padding: 0 4px;
+    }
+    .project-list {
+        flex-direction: column;
+        gap: 8px;
+    }
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+    .project-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .project {
+        min-width: 0;
+        width: 90%;
+        max-width: 100%;
+    }
 }
