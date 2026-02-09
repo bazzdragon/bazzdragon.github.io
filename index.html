@@ -1,91 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="index_styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <button class="hamburger-overlay" id="hamburger-overlay" type="button" aria-label="Open menu" title="Open menu" hidden>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <aside class="sidebar" id="sidebar">
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle sidebar" title="Toggle sidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="#about" class="nav-link active" title="About me">About me</a>
+      <a href="#projects" class="nav-link" title="Projects">Projects</a>
+      <a href="#skills" class="nav-link" title="Tools">Tools</a>
+      <a href="#contacts" class="nav-link" title="Contacts">Contacts</a>
+      <a href="#files" class="nav-link" title="Files">Files</a>
+    </nav>
+  </aside>
 
-    <header>
-        <div class="container">
-            <h1>Ossi Heikkinen</h1>
-            <p>Game and Web Developer, Designer and Creator</p>
+  <main class="main-content" id="main-content">
+    <section id="about" class="page-section active">
+      <h2 class="section-heading">Ossi Heikkinen, game and web developer:</h2>
+      <div class="about-layout">
+        <!-- IMAGE: About / profile photo (circular, left). Replace inner content with <img src="your-photo.jpg" alt="Picture of me"> -->
+        <div class="image-placeholder about-photo" data-image="about-photo" aria-label="Picture of me">
+          <span>picture of me</span>
         </div>
-    </header>
-
-
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm a 16 year old beginner game and web developer from Finland. I'm studying in OSAO vocational school</p>
-            <p>on my second year the school will last 3 years. I like to learn more about programming and game developing. I enjoy challenges.</p>
+        <div class="about-text-wrap">
+          <p class="about-text">
+            I am a 17 year old game and web developer from Finland. I'm studying in OSAO vocational school on my second year the school will last 3 years. I have been interested in game development for a long time and i love to learn new tools and skills related to game development. I've always been interested in how games and websites are made and that's what got me into game development. I've been able to do many kinds of projects already and learn about all kinds of tools and different game genres. I have also been able to try different kinds of perspectives in games from 2D all the way to VR.
+          </p>
         </div>
+      </div>
     </section>
 
+    <section id="projects" class="page-section">
+      <h2 class="section-heading">Here are all my projects</h2>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Tools and Programming languages</h2>
-            <ul>
-                <li>Python</li>
-                <li>Godot</li>
-                <li>Photoshop</li>
-                <li>HTML</li>
-                <li>XD</li>
-            </ul>
-        </div>
-    </section>
-
-
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project">
-                    <h3>Adventures of Lobo</h3>
-                    <p>Adventures of lobo is the first game I have ever made. It is a 2d platformer. You play as a werewolf and it is pretty short few minutes of playtime but still a bit hard.</p>
-                    <a href="lobo.html" class="button" title="info about Adventures of Lobo">more info</a>
-                </div>
-                <!-- Add more .project divs for more projects -->
-                <div class="project">
-                    <h3>Hellslayer</h3>
-                    <p></p>
-                    <a href="hellslayer.html" class="button" title="info about Hellslayer">more info</a>
-                </div>
-                <div class="project">
-                    <h3>DEFEND.EXE</h3>
-                    <p></p>
-                    <a href="hellslayer.html" class="button" title="info about DEFEND.EXE">more info</a>
-                </div>
-                <div class="project">
-                    <h3>vr horror game</h3>
-                    <p></p>
-                    <a href="hellslayer.html" class="button" title="info about vr horror game">more info</a>
-                </div>
+      <!-- Project 1: Adventures of lobo -->
+      <article class="project-block" data-project="adventures">
+        <h3 class="project-name">Adventures of Lobo</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <!-- IMAGE: Adventures of lobo – project images (carousel). Add URLs in script.js projectImages.adventures -->
+            <div class="image-placeholder project-image" data-image="project-adventures" tabindex="0" role="button">
+              <span>project image</span>
             </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">
+              Adventures of Lobo is a 2D platformer game where you play as a werewolf named Lobo. The game was my first ever game project and I made it alone using the godot engine and gdscript. The game only features one level but it was a great introduction to game development. I tried to challenge myself while doing it trying to do all kinds of stuff into it like falling and moving platformers and two kinds of enemies ones who go back and forth and one that activastes only when you are close enough.
+            </p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Godot_icon.svg.png" alt="Godot"></span></p>
+            <p class="project-team">Solo</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="adventures-project" download>Download adventures of lobo</a>
+            </div>
+          </div>
         </div>
+      </article>
+
+      <!-- Project 2: Hellslayer -->
+      <article class="project-block" data-project="hellslayer">
+        <h3 class="project-name">Hellslayer</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <!-- IMAGE: Hellslayer – project images (carousel). Add URLs in script.js projectImages.hellslayer -->
+            <div class="image-placeholder project-image" data-image="project-hellslayer" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">
+              Hellslayer is a 3D first person action game made in unity. Hellslayer was the first 3D game I ever worked on and it was a team project done in teams of 4 randomly picked. In the game the player uses weapons to kill waves of enemies.
+            </p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code"><img class="tool-icon" src="unity.png" alt="Unity"><img class="tool-icon" src="csharp.png" alt="C#"><img class="tool-icon" src="Trello.png" alt="Trello"><img class="tool-icon" src="github.png" alt="GitHub"><img class="tool-icon" src="copilot.png" alt="Copilot"><img class="tool-icon" src="meshy.png" alt="Meshy"></span></p>
+            <p class="project-team">Team of 4</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="hellslayer-project" download>Download Hellslayer</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: PC part shop website plan -->
+      <article class="project-block" data-project="pc-part-shop">
+        <h3 class="project-name">GPU manufacturer website prototype</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <div class="image-placeholder project-image" data-image="project-pc-part-shop" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">This was the final project of an Adobe XD course, where we had to create prototypes for websites. Me and my friend came up with this graphics card manufacturer and their graphics card and did this prototype website for it.</p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Adobe-Xd-Icon-PNG.png" alt="Adobe XD"><img class="tool-icon" src="photoshop.png" alt="Adobe Photoshop"></span></p>
+            <p class="project-team">Team of 2</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="pc-part-shop-project" download>Download GPU manufacturer website prototype</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: Portfolio -->
+      <article class="project-block" data-project="portfolio">
+        <h3 class="project-name">Portfolio</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <div class="image-placeholder project-image" data-image="project-portfolio" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">This is the portfolio you are currently reading. This is my first and only web project so far. This is to showcase my projects, tools and tell about myself. I started this with a design done in xd.</p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Adobe-Xd-Icon-PNG.png" alt="Adobe XD"><img class="tool-icon" src="Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code"><img class="tool-icon" src="cursor.png" alt="cursor"><img class="tool-icon" src="github.png" alt="GitHub"><img class="tool-icon" src="copilot.png" alt="Copilot"><img class="tool-icon" src="html.png" alt="html"><img class="tool-icon" src="css.png" alt="css"><img class="tool-icon" src="js.svg" alt="javascript"></span></p>
+            <p class="project-team">Solo</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="portfolio-project" download>Download Portfolio</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: DEFEND.EXE -->
+      <article class="project-block" data-project="defend-exe">
+        <h3 class="project-name">DEFEND.EXE</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <div class="image-placeholder project-image" data-image="project-defend-exe" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">This was my first work with pygame. This was a few week summer project done in pairs. We made a tower defense game with my friend. In the game viruses are attacking your computer and you put down different virus defenses to stop them. When you try to place a tower you are presented with a question about coding or computers which you have to answer correctly to place the tower.</p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code"><img class="tool-icon" src="pyyttoni.png" alt="Python"><img class="tool-icon" src="Trello.png" alt="Trello"><img class="tool-icon" src="github.png" alt="GitHub"><img class="tool-icon" src="copilot.png" alt="Copilot"></span></p>
+            <p class="project-team">Team of 2</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="defend-exe-project" download>Download DEFEND.EXE</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 6: L.I.S.T -->
+      <article class="project-block" data-project="list">
+        <h3 class="project-name">L.I.S.T</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <div class="image-placeholder project-image" data-image="project-list" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">This was my first vr project. L.I.S.T is a game where the player is in a metro and has to go around finding out if objects are normal or anomaly. We started working on the game in unreal engine but it was very bad for vr development so we changed to unity later on. There isn't really a lot to do in the game since we didn't have time to finish it.</p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code"><img class="tool-icon" src="unity.png" alt="Unity"><img class="tool-icon" src="copilot.png" alt="Copilot"><img class="tool-icon" src="csharp.png" alt="C#"><img class="tool-icon" src="miro.png" alt="Miro"><img class="tool-icon" src="p4v.png" alt="Perforce"><img class="tool-icon" src="blender.png" alt="Blender"></span></p>
+            <p class="project-team">Team of 4</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="list-project" download>Download L.I.S.T</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 7: Battants -->
+      <article class="project-block" data-project="battants">
+        <h3 class="project-name">Battants</h3>
+        <div class="project-row">
+          <div class="project-image-wrap">
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&lt;</button>
+            <div class="image-placeholder project-image" data-image="project-battants" tabindex="0" role="button">
+              <span>project image</span>
+            </div>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&gt;</button>
+          </div>
+          <div class="project-details">
+            <p class="project-description">This is my newest still ongoing project. Battants is a 2D local multiplayer arena fighter party game. In the game players control ants and try to kill each other using all kinds of weapons, utility and abilities. This is the first multiplayer game I've been working on.</p>
+            <p class="tools-used"><span class="tools-label">Tools Used:</span> <span class="tools-icons"><img class="tool-icon" src="Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code"><img class="tool-icon" src="Godot_icon.svg.png" alt="Godot"><img class="tool-icon" src="Trello.png" alt="Trello"><img class="tool-icon" src="github.png" alt="GitHub"><img class="tool-icon" src="copilot.png" alt="Copilot"></span></p>
+            <p class="project-team">Team of 2</p>
+            <div class="project-actions">
+              <a href="#files" class="link-blue">all project files</a>
+              <a href="#" class="btn-download" data-download="battants-project" download>Download Battants</a>
+            </div>
+          </div>
+        </div>
+      </article>
     </section>
 
-
-    <section id="contact">
-        <div class="container">
-            <h2>Contacts</h2>
-            <ul>
-                <li>List of my contacs if you are interested!</li>
-                <li>Email: ossi.heikkinen5000@gmail.com</li>
-                <li>GitHub: <a href="https://github.com/bazzdragon" target="_blank" title="My GitHub">bazzdragon</a></li>
-            </ul>
+    <section id="skills" class="page-section">
+      <h2 class="section-heading">Here is how good i am at using different tools and whether i've used them in projects</h2>
+      <div class="skills-grid">
+        <!-- IMAGE: Skill icon (e.g. Adobe Photoshop). Replace with <img src="ps-icon.png" alt="Adobe Photoshop"> -->
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-ps" aria-label="Adobe Photoshop">
+            <img src="photoshop.png" alt="Adobe Photoshop">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <!-- Not interactive: add class "used" to .used-in-project-square to show you used this tool in a project -->
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
         </div>
+        <!-- IMAGE: Skill icon (e.g. Adobe XD). Replace with <img src="xd-icon.png" alt="Adobe XD"> -->
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-xd" aria-label="Adobe XD">
+            <img src="Adobe-Xd-Icon-PNG.png" alt="Adobe XD">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-blender" aria-label="Blender">
+            <img src="blender.png" alt="Blender">
+          </div>
+          <div class="skill-stars" data-level="3" aria-label="3 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-c" aria-label="C">
+            <img src="c.png" alt="C">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-csharp" aria-label="C#">
+            <img src="csharp.png" alt="C#">
+          </div>
+          <div class="skill-stars" data-level="1" aria-label="1 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-github" aria-label="GitHub">
+            <img src="github.png" alt="GitHub">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-godot" aria-label="Godot">
+            <img src="Godot_icon.svg.png" alt="Godot">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-illustrator" aria-label="Adobe Illustrator">
+            <img src="illustrator.png" alt="Adobe Illustrator">
+          </div>
+          <div class="skill-stars" data-level="1" aria-label="1 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-miro" aria-label="Miro">
+            <img src="miro.png" alt="Miro">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-p4v" aria-label="p4v">
+            <img src="p4v.png" alt="p4v">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-python" aria-label="Python">
+            <img src="pyyttoni.png" alt="Python">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-Rhino" aria-label="Rhino">
+            <img src="Rhino.png" alt="Rhino">
+          </div>
+          <div class="skill-stars" data-level="3" aria-label="3 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-trello" aria-label="Trello">
+            <img src="Trello.png" alt="Trello">
+          </div>
+          <div class="skill-stars" data-level="5" aria-label="5 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-unity" aria-label="Unity">
+            <img src="unity.png" alt="Unity">
+          </div>
+          <div class="skill-stars" data-level="3" aria-label="3 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-unreal-engine" aria-label="Unreal Engine">
+            <img src="unreal_engine.png" alt="unreal engine">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-copilot" aria-label="Copilot">
+            <img src="copilot.png" alt="copilot">
+          </div>
+          <div class="skill-stars" data-level="5" aria-label="5 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-cursor" aria-label="Cursor">
+            <img src="cursor.png" alt="cursor">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-visual-studio-code" aria-label="Visual Studio Code">
+            <img src="Visual_Studio_Code_1.35_icon.svg" alt="visual studio code">
+          </div>
+          <div class="skill-stars" data-level="5" aria-label="5 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-antigravity" aria-label="Antigravity">
+            <img src="antigravity.png" alt="antigravity">
+          </div>
+          <div class="skill-stars" data-level="3" aria-label="3 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-chatgpt" aria-label="ChatGPT">
+            <img src="gpt.svg" alt="ChatGPT">
+          </div>
+          <div class="skill-stars" data-level="5" aria-label="5 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-leonardo" aria-label="Leonardo AI">
+            <img src="leonardo.png" alt="leonardo ai">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-meshy" aria-label="Meshy">
+            <img src="meshy.png" alt="meshy">
+          </div>
+          <div class="skill-stars" data-level="4" aria-label="4 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-html" aria-label="HTML">
+            <img src="html.png" alt="html">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-css" aria-label="CSS">
+            <img src="css.png" alt="css">
+          </div>
+          <div class="skill-stars" data-level="2" aria-label="2 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="image-placeholder skill-icon" data-image="skill-js" aria-label="JavaScript">
+            <img src="js.svg" alt="javascript">
+          </div>
+          <div class="skill-stars" data-level="0" aria-label="0 out of 5"></div>
+          <div class="used-in-project">
+            <span class="used-in-project-square used" aria-hidden="true"></span>
+            <span class="used-in-project-label">Used in a project</span>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <section id="contacts" class="page-section">
+      <h2 class="section-heading">Here are my contacts if you are interested</h2>
+      <div class="contact-info">
+        <p>Email: ossi.heikkinen5000@gmail.com</p>
+        <p>Phone: +358 44 977 5379</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/ossippa/" class="social-icon" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://github.com/bazzdragon" class="social-icon" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+      </div>
+    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ossi Heikkinen. All rights reserved.</p>
+    <section id="files" class="page-section">
+      <h2 class="section-heading">Here are all the files</h2>
+      <div class="files-list">
+        <div class="files-group">
+          <h3 class="files-group-title">Adventures of lobo files:</h3>
+          <div class="file-row">
+            <span class="file-name">Adventures of lobo game</span>
+            <a href="#" class="btn-download btn-download-small" data-download="adventures-game" download>Download</a>
+          </div>
         </div>
-    </footer>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">Hellslayer files:</h3>
+          <div class="file-row">
+            <span class="file-name">Hellslayer game</span>
+            <a href="#" class="btn-download btn-download-small" data-download="hellslayer-game" download>Download</a>
+          </div>
+          <div class="file-row">
+            <span class="file-name">Hellslayer gdd</span>
+            <a href="#" class="btn-download btn-download-small" data-download="hellslayer-gdd" download>Download</a>
+          </div>
+        </div>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">GPU manufacturer website prototype files:</h3>
+          <div class="file-row">
+            <span class="file-name">GPU manufacturer website prototype</span>
+            <a href="#" class="btn-download btn-download-small" data-download="pc-part-shop-file" download>Download</a>
+          </div>
+        </div>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">Portfolio design prototype files:</h3>
+          <div class="file-row">
+            <span class="file-name">Portfolio design prototype</span>
+            <a href="#" class="btn-download btn-download-small" data-download="portfolio-file" download>Download</a>
+          </div>
+        </div>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">DEFEND.EXE files:</h3>
+          <div class="file-row">
+            <span class="file-name">DEFEND.EXE game</span>
+            <a href="#" class="btn-download btn-download-small" data-download="defend-exe-game" download>Download</a>
+          </div>
+        </div>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">L.I.S.T files:</h3>
+          <div class="file-row">
+            <span class="file-name">L.I.S.T game</span>
+            <a href="#" class="btn-download btn-download-small" data-download="list-game" download>Download</a>
+          </div>
+        </div>
+        <div class="files-separator"></div>
+        <div class="files-group">
+          <h3 class="files-group-title">Battants files:</h3>
+          <div class="file-row">
+            <span class="file-name">Battants game</span>
+            <a href="#" class="btn-download btn-download-small" data-download="battants-game" download>Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">&lt;</button>
+      <div class="image-placeholder lightbox-image" id="lightbox-image">
+        <span>project image</span>
+      </div>
+      <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">&gt;</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

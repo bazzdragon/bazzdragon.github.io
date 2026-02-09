@@ -1,0 +1,712 @@
+/* Portfolio – XD wireframe implementation */
+:root {
+  --green: #039216;
+  --green-hover: #05b31e;
+  --blue: #12D7EE;
+  --blue-hover: #4de3f5;
+  --white: #FFFFFF;
+  --bg: #2A2A2A;
+  --sidebar: #262626;
+  --hamburger: #585858;
+  --hamburger-hover: #7a7a7a;
+  --header-bar: #e0e0e0;
+  --header-text: #4a4a4a;
+  --sidebar-width: 200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Layout: sidebar + main */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--sidebar);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  transition: transform 0.25s ease, width 0.25s ease;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.hamburger-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: var(--sidebar);
+  border: none;
+  border-radius: 0 0 8px 0;
+  cursor: pointer;
+  color: var(--hamburger);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.hamburger-overlay:hover {
+  color: var(--hamburger-hover);
+  background: #333;
+}
+
+.hamburger-overlay:not([hidden]) {
+  display: flex;
+}
+
+.hamburger-overlay span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.hamburger {
+  align-self: flex-start;
+  margin-left: 1rem;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--hamburger);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.hamburger:hover {
+  color: var(--hamburger-hover);
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.nav-link {
+  color: var(--green);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--green-hover);
+}
+
+.nav-link.active {
+  text-decoration: underline;
+}
+
+/* Main content – scales with sidebar */
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  transition: margin-left 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+body.sidebar-collapsed .main-content {
+  margin-left: 0;
+}
+
+/* Sections: only active one visible – use more of screen */
+.page-section {
+  display: none;
+  padding: 2rem 1.5rem 3rem;
+  flex: 1;
+  text-align: center;
+  max-width: 100%;
+}
+
+.page-section.active {
+  display: block;
+}
+
+.section-heading {
+  color: var(--green);
+  font-size: 2.25rem;
+  margin: 0 0 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Image placeholders – white squares for your images */
+.image-placeholder {
+  background: var(--white);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* About – heading centered, then photo left + text right; wide layout */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.about-photo {
+  width: 240px;
+  height: 240px;
+  min-width: 240px;
+  min-height: 240px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.about-text-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-text {
+  color: var(--white);
+  line-height: 1.65;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Projects */
+.project-block {
+  margin-bottom: 3rem;
+}
+
+.project-block:last-child {
+  margin-bottom: 0;
+}
+
+.project-name {
+  color: var(--green);
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.project-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.project-image-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Override white placeholder background for actual project images */
+.project-image {
+  background: var(--bg);
+}
+
+.carousel-arrow {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--hamburger);
+  border: none;
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: var(--hamburger-hover);
+}
+
+.project-image-wrap .image-placeholder {
+  width: 640px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.project-image-wrap .image-placeholder:hover {
+  opacity: 0.95;
+}
+
+.project-image img {
+  object-fit: contain;
+}
+
+.lightbox-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-details {
+  flex: 1;
+  min-width: 240px;
+}
+
+.project-description {
+  color: var(--white);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.tools-used {
+  color: var(--white);
+  margin: 0 0 0.25rem;
+}
+
+.project-team {
+  color: var(--white);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.tools-label {
+  font-weight: 600;
+}
+
+/* Container for tool icons (images) under "Tools Used:" – add <img class="tool-icon" src="..." alt="..."> for each tool */
+.tools-icons {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.tool-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.tools-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25em;
+  height: 1.25em;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.link-blue {
+  color: var(--blue);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.link-blue:hover {
+  color: var(--blue-hover);
+}
+
+.btn-download {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+a.btn-download:hover {
+  background: var(--blue-hover);
+  color: var(--white);
+}
+
+.btn-download:hover {
+  background: var(--blue-hover);
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  font-size: 1.25rem;
+  background: transparent;
+}
+
+.skill-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Skill level stars: set data-level="1" to data-level="5" on .skill-stars. Filled = your level, rest empty. */
+.skill-stars {
+  display: inline-flex;
+  gap: 0.15em;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.skill-stars .star {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.skill-stars .star.filled {
+  color: #e6b800;
+}
+
+/* Used in project: non-interactive indicator. Add class "used" to .used-in-project-square when you’ve used this tool in a project. */
+.used-in-project {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.used-in-project-square {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+}
+
+.used-in-project-square.used {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* Contacts */
+.contact-info {
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: var(--white);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.social-icon:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.social-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Files */
+.files-list {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.files-group-title {
+  color: var(--green);
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(3, 146, 22, 0.3);
+}
+
+.files-group .file-row:last-child {
+  border-bottom: none;
+}
+
+.file-row .file-name {
+  color: var(--green);
+}
+
+.btn-download-small {
+  padding: 0.35rem 1rem;
+  font-size: 0.875rem;
+}
+
+.files-separator {
+  height: 1px;
+  background: var(--green);
+  opacity: 0.5;
+  margin: 1rem 0;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox[aria-hidden="false"] {
+  display: flex;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: var(--sidebar);
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1001;
+}
+
+.lightbox-close:hover {
+  background: var(--hamburger);
+}
+
+.lightbox-content {
+  /* Center the image in the middle of the screen,
+     only a bit larger than the project image, not full-screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: min(1100px, 95vw);
+  max-height: 90vh;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-arrow {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--hamburger);
+  border: none;
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-arrow:hover {
+  background: var(--hamburger-hover);
+}
+
+/* Mobile: sidebar overlay when open */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  body:not(.sidebar-collapsed) .sidebar::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  .project-image-wrap {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-image-wrap .image-placeholder {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-image-wrap .carousel-prev,
+  .project-image-wrap .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+  }
+
+  .project-image-wrap .carousel-prev {
+    left: 0.25rem;
+  }
+
+  .project-image-wrap .carousel-next {
+    right: 0.25rem;
+  }
+
+  .project-row {
+    flex-direction: column;
+  }
+
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-photo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
